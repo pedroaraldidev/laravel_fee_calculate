@@ -54,7 +54,7 @@
           <br /><br />
 
           <span class="input-group-center" v-show="result">
-            Taxa Adicional com Plano: R${{ additional_fee }}
+            Taxa Adicional caso ultrapasse valor do plano: R${{ additional_fee }}
           </span>
 
           <br />
