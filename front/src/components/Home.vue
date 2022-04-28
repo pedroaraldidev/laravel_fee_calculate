@@ -2,71 +2,74 @@
   <center>
     <v-container fluid>
       <br /><br />
-      <v-card class="mt-5" id="inspire">
-        <div class="col-3">
-          <span class="input-group-text" id="basic-addon3"
-            >Selecione o seu plano:</span
-          >
+      <v-form>
+        <div class="col-sm-4 col-9">
+          <span class="input-group-text"> Selecione o seu plano: </span>
           <select class="form-select mb-3" v-model="minutesPlan">
             <option v-for="plan in plans" :value="plan.minutes" :key="plan.id">
               {{ plan.name }}
             </option>
           </select>
         </div>
-        <div class="col-3">
-          <span class="input-group-text" id="basic-addon3">
-            Selecione o DDD do Remetente:</span
-          >
+
+        <div class="col-sm-4 col-9">
+          <span class="input-group-text" id>
+            Selecione o DDD do Remetente:
+          </span>
           <select required class="form-select mb-3" v-model="dddOrigin">
             <option v-for="code in codes" :key="code.value">
               {{ code.ddd }}
             </option>
           </select>
         </div>
-        <div class="col-3">
+
+        <div class="col-sm-4 col-9">
           <span class="input-group-text" id="basic-addon3">
             Selecione o DDD do Destinatário:
           </span>
-          <select
-            required
-            class="form-select form-select mb-3"
-            v-model="dddDestination"
-          >
+          <select required class="form-select mb-3" v-model="dddDestination">
             <option v-for="code in codes" :key="code.id">
               {{ code.ddd }}
             </option>
           </select>
         </div>
-        <div class="col-3">
+
+        <div class="col-sm-4 col-9">
           <span class="input-group-text" id="basic-addon3">
             Preencha com os Minutos Utilizados:
           </span>
           <input
-            required
             class="form-control form-control-mb3"
             type="number"
             v-model="timeUsed"
           />
           <br />
+
           <button class="btn btn-primary" @click="calculateFee">
             Calcular
           </button>
-          <button class="btn btn-secondary" @click="resetData">Limpar</button
-          ><br /><br />
 
-          <span class="input-group-text" v-show="result"
-            >Taxa Adicional com Plano: R${{ additional_fee }}</span
-          ><br />
-          <span class="input-group-text" v-show="result"
-            >Valor sem plano: R$ {{ noPlanValue }}</span
-          >
-          <span class="input-group-text" v-if="errored">
+          <button class="btn btn-secondary" @click="resetData">Limpar</button>
+
+          <br /><br />
+
+          <span class="input-group-center" v-show="result">
+            Taxa Adicional com Plano: R${{ additional_fee }}
+          </span>
+
+          <br />
+
+          <span class="input-group-center" v-show="result">
+            Valor sem plano: R$ {{ noPlanValue }}
+          </span>
+
+          <span class="input-group-center" v-if="errored">
             Erro: Resultado Indisponível!<br />
             Verifique se os dados estão preenchidos corretamente!<br />
-            Caso estejam contate o suporte!</span
-          >
+            Caso estejam contate o suporte!
+          </span>
         </div>
-      </v-card>
+      </v-form>
     </v-container>
   </center>
 </template>
