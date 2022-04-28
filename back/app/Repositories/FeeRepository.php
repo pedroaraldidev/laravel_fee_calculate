@@ -16,9 +16,10 @@ class FeeRepository implements FeeRepositoryInterface
     }
 
     public function priceMinute(string $dddOrigin, string $dddDestination)
-    {   $valuePerMinute =  $this->entity->get()
+    {   $valuePerMinute =  $this->entity->select('value_min')
         ->where('origin_ddd', $dddOrigin)
-        ->where('destination_ddd', $dddDestination);
+        ->where('destination_ddd', $dddDestination)
+        ->get();
 
         return ($valuePerMinute);
     }

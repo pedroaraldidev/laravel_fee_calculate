@@ -21,9 +21,9 @@ class FeeService{
 
     public function feeCalculate(string $dddOrigin, string $dddDestination, int $usedMinutes, int $minutesPlan)
     {
-        if(isset($this->priceMinute($dddOrigin, $dddDestination)[1]))
+        if(isset($this->priceMinute($dddOrigin, $dddDestination)[0]))
         {
-            $valuePerMinute = $this->priceMinute($dddOrigin, $dddDestination)[1]->value_min;
+            $valuePerMinute = $this->priceMinute($dddOrigin, $dddDestination)[0]->value_min;
             $additionalMinuteValue = $valuePerMinute + $valuePerMinute/100 * $this->percentage;
             $surplusMinutes = $minutesPlan >= $usedMinutes ? 0 : $usedMinutes - $minutesPlan;
             $additionalFee = $surplusMinutes * $additionalMinuteValue;
