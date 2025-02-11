@@ -1,7 +1,7 @@
-# Teste LOLDESIGN
+# Laravel App Fee Calculate
 ## Backend 
 
-1. Clone your project. Command: 'git clone https://github.com/pedrodamiani21/Test_LolDesign.git';
+1. Clone your project. Command: 'git clone https://github.com/pedrodamiani21/laravel_fee_calculate.git';
 2. Access the folder 'back'. Command: cd back;
 3. Install Composer. Command: composer install;
 4. Copy the env folder. Command: cp .env.example .env;
